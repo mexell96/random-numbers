@@ -11,14 +11,12 @@ document.getElementById('mainDiv').oninput = function () {
 
     if (min == '' || max == '' || leng == '') {
         // если хоть одно true, то идет следующее ->
-        let message = ('Заполните все поля');
-        document.querySelector('#message').innerHTML = message;
+        document.querySelector('#message').innerHTML = 'Заполните все поля';
         disabledButton.setAttribute('disabled', 'disabled');
         document.getElementById('disButton').classList.add('red');
-    } else if ( ((max - min) + 1) < leng || leng <= 0) {
+    } else if ( ((max - min) + 1) < leng || leng <= 0 ) {
         // если хоть одно true, то идет следующее ->
-        let message = ('Неверные значения');
-        document.querySelector('#message').innerHTML = message;
+        document.querySelector('#message').innerHTML = 'Неверные значения';
         disabledButton.setAttribute('disabled', 'disabled');
         document.getElementById('disButton').classList.add('red');
     } else {
@@ -29,8 +27,7 @@ document.getElementById('mainDiv').oninput = function () {
     }
 };
 
-
-document.querySelector('button').onclick = function () {
+document.getElementById('disButton').onclick = function () {
     let min = parseInt(document.querySelector('#min').value);
     let max = parseInt(document.querySelector('#max').value);
     let leng = parseInt(document.querySelector('#length').value);
