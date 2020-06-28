@@ -1,11 +1,3 @@
-// Напиши генератор случайных числел, который принимает
-// мин значение, макс значение, количество рандомных чисел
-// числа генерируются целыми в промежутке от мин до макс
-// возвращаемый массив числе иметь длину количество рандомных чисел, числа в массиве не должны повторяться
-// нельзя использовать перебирающие функции — for, map и тд 
-// используй рекурсию
-
-
 let result = [];
 let uniqResult = [];
 
@@ -17,14 +9,21 @@ document.getElementById('mainDiv').oninput = function () {
     let max = document.querySelector('#max').value;
     let leng = document.querySelector('#length').value;
 
-    if (min == '' || max == '' || leng == '' || ((max - min) + 1) < leng || leng <= 0) {
+    if (min == '' || max == '' || leng == '') {
         // если хоть одно true, то идет следующее ->
-        console.log('допишите данные или исправьте значения');
+        let message = ('Заполните все поля');
+        document.querySelector('#message').innerHTML = message;
+        disabledButton.setAttribute('disabled', 'disabled');
+        document.getElementById('disButton').classList.add('red');
+    } else if ( ((max - min) + 1) < leng || leng <= 0) {
+        // если хоть одно true, то идет следующее ->
+        let message = ('Неверные значения');
+        document.querySelector('#message').innerHTML = message;
         disabledButton.setAttribute('disabled', 'disabled');
         document.getElementById('disButton').classList.add('red');
     } else {
         //если все false, то идет следующее ->
-        console.log('все ок');
+        document.querySelector('#message').innerHTML = "";
         disabledButton.removeAttribute('disabled');
         document.getElementById('disButton').classList.remove('red');
     }
