@@ -43,7 +43,7 @@ function randomInteger(min, max, leng) {
     uniqResult = [...new Set(result)];
 
     if (uniqResult.length === leng) {
-        document.querySelector('#out').innerHTML = uniqResult;
+        document.querySelector('#out').value = uniqResult;
         return;
     };
     randomInteger(min, max, leng);
