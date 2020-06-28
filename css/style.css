@@ -6,14 +6,17 @@ body {
 * {
     box-sizing: border-box;
 }
-
 #out {
     background-color: cornsilk;
 }
-
 button {
     background-color: greenyellow;
 }
 .red {
     background-color: crimson;
+}
+#message {
+    font-size: 20px;
+    font-weight: bold;
+    width: 400px;
 }
