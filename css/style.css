@@ -7,7 +7,7 @@ body {
     box-sizing: border-box;
 }
 #out {
-    background-color: cornsilk;
+    width: 500px;
 }
 button {
     background-color: greenyellow;
@@ -19,4 +19,7 @@ button {
     font-size: 20px;
     font-weight: bold;
     width: 400px;
+}
+#mainDiv div {
+    width: 500px;
 }
