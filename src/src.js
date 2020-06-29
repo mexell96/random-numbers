@@ -1,6 +1,3 @@
-let result = [];
-let uniqResult = [];
-
 let disabledButton = document.getElementById('disButton');
 disabledButton.setAttribute('disabled', 'disabled');
 
@@ -31,20 +28,23 @@ document.getElementById('disButton').onclick = function () {
     let min = parseInt(document.querySelector('#min').value);
     let max = parseInt(document.querySelector('#max').value);
     let leng = parseInt(document.querySelector('#length').value);
-    
+
     result = [];
     uniqResult = []; 
-    randomInteger(min, max, leng);  
+    randomInteger(min, max, leng);     
 };
 
 function randomInteger(min, max, leng) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
-    result.push(Math.round(rand));
-    uniqResult = [...new Set(result)];
+    let randRound = Math.round(rand);
 
-    if (uniqResult.length === leng) {
-        document.querySelector('#out').value = uniqResult;
-        return;
-    };
+    if (!result.includes(randRound)) {
+        result.push(randRound); 
+        
+        if (result.length === leng) {
+            document.querySelector('#out').value = result;
+            return;
+        }; 
+    }
     randomInteger(min, max, leng);
 };
