@@ -35,16 +35,23 @@ document.getElementById('disButton').onclick = function () {
 };
 
 function randomInteger(min, max, leng) {
-    let rand = min - 0.5 + Math.random() * (max - min + 1);
-    let randRound = Math.round(rand);
-
-    if (!result.includes(randRound)) {
-        result.push(randRound); 
+    
+    let newOrOld;
+    do {
+        let rand = min - 0.5 + Math.random() * (max - min + 1);
+        let randRound = Math.round(rand);
         
-        if (result.length === leng) {
-            document.querySelector('#out').value = result;
-            return;
-        }; 
-    }
+        if (!result.includes(randRound)) {
+            result.push(randRound);
+            newOrOld = true;
+            if (result.length === leng) {
+                document.querySelector('#out').value = result;
+                return result;
+            };
+        } else {
+            newOrOld = false;
+        }
+    } while (newOrOld === false);
+
     randomInteger(min, max, leng);
 };
